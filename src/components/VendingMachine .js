@@ -61,7 +61,12 @@ const VendingMachine = ({ onSelectProduct }) => {
       setSnackbarOpen(true);
       handleCloseConfirmPurchaseDialog();
     } else {
-      setSnackbarMessage("Not enough money!");
+      const requiredMoney = selectedProduct
+        ? Number((selectedProduct.price - coinsInserted).toFixed(2))
+        : 0;
+      setSnackbarMessage(
+        `Not enough money! You need $${requiredMoney} more to buy ${selectedProduct?.name}.`
+      );
       setSnackbarOpen(true);
     }
   };
@@ -115,9 +120,7 @@ const VendingMachine = ({ onSelectProduct }) => {
               <Button
                 variant="contained"
                 color="secondary"
-                disabled={
-                  !selectedProduct || coinsInserted < selectedProduct.price
-                }
+                disabled={!selectedProduct}
                 onClick={handleOpenConfirmPurchaseDialog}
                 style={{ marginBottom: "1rem" }}
               >
