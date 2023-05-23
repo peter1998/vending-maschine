@@ -7,6 +7,8 @@ import {
   Dialog,
   DialogTitle,
   DialogActions,
+  Grid,
+  Card,
 } from "@mui/material";
 import CoinInsertion from "./CoinInsertion";
 import ProductList from "./ProductList";
@@ -80,37 +82,56 @@ const VendingMachine = ({ onSelectProduct }) => {
   return (
     <VendingMachineCard>
       <div style={{ margin: "2rem" }}>
-        <Typography variant="h4" style={{ marginBottom: "1rem" }}>
-          Vending Machine
-        </Typography>
-        <Typography variant="h6" style={{ marginBottom: "1rem" }}>
-          Total Inserted: ${coinsInserted.toFixed(2)}
-        </Typography>
-        <CoinInsertion
-          onInsertCoin={handleInsertCoin}
-          style={{ marginBottom: "1rem" }}
-        />
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            marginBottom: "1rem",
-          }}
-        >
-          <Button
-            variant="contained"
-            color="secondary"
-            disabled={!selectedProduct || coinsInserted < selectedProduct.price}
-            onClick={handleOpenConfirmPurchaseDialog}
-          >
-            Confirm Purchase
-          </Button>
-          <ResetProcess onResetProcess={handleResetProcess} />
-        </div>
-        <ProductList
-          onSelectProduct={setSelectedProduct}
-          style={{ marginBottom: "1rem" }}
-        />
+        <Grid container spacing={3}>
+          <Grid item xs={6}>
+            <Typography variant="h4" style={{ marginBottom: "1rem" }}>
+              Vending Machine
+            </Typography>
+            <Typography variant="h6" style={{ marginBottom: "1rem" }}>
+              Total Inserted: ${coinsInserted.toFixed(2)}
+            </Typography>
+            {selectedProduct && (
+              <Card style={{ padding: "1rem", marginBottom: "1rem" }}>
+                <Typography variant="h6">
+                  Selected Product: {selectedProduct.name}
+                </Typography>
+                <Typography variant="body1">
+                  Price: ${selectedProduct.price.toFixed(2)}
+                </Typography>
+              </Card>
+            )}
+            <Typography variant="h6" style={{ marginBottom: "1rem" }}>
+              Change: ${change.toFixed(2)}
+            </Typography>
+            <CoinInsertion
+              onInsertCoin={handleInsertCoin}
+              style={{ marginBottom: "1rem" }}
+            />
+            <Grid container justifyContent="space-between" alignItems="center">
+              <ResetProcess
+                onResetProcess={handleResetProcess}
+                style={{ marginBottom: "1rem" }}
+              />
+              <Button
+                variant="contained"
+                color="secondary"
+                disabled={
+                  !selectedProduct || coinsInserted < selectedProduct.price
+                }
+                onClick={handleOpenConfirmPurchaseDialog}
+                style={{ marginBottom: "1rem" }}
+              >
+                Confirm Purchase
+              </Button>
+            </Grid>
+          </Grid>
+          <Grid item xs={6}>
+            <ProductList
+              onSelectProduct={setSelectedProduct}
+              style={{ marginBottom: "1rem" }}
+            />
+          </Grid>
+        </Grid>
         <Snackbar
           open={snackbarOpen}
           autoHideDuration={6000}

@@ -2,7 +2,7 @@ import { Button, Card, CardContent, Typography } from "@mui/material";
 
 const Product = ({ product, onSelectProduct }) => {
   return (
-    <Card>
+    <Card style={{ width: "100%" }}>
       <CardContent>
         <Typography variant="h5">{product.name}</Typography>
         <Typography variant="body2">${product.price}</Typography>
