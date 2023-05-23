@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Typography, Button } from "@mui/material";
 import CoinInsertion from "./CoinInsertion";
+import ProductList from "./ProductList";
+import ResetProcess from "./ResetProcess";
 import { buyProduct } from "../store/actions/productActions";
 
 const VendingMachine = ({ onSelectProduct }) => {
@@ -25,6 +27,12 @@ const VendingMachine = ({ onSelectProduct }) => {
     }
   };
 
+  const handleResetProcess = () => {
+    setChange(coinsInserted);
+    setCoinsInserted(0);
+    setSelectedProduct(null);
+  };
+
   return (
     <div>
       <Typography variant="h4">Vending Machine</Typography>
@@ -40,6 +48,7 @@ const VendingMachine = ({ onSelectProduct }) => {
       >
         Confirm Purchase
       </Button>
+      <ResetProcess onResetProcess={handleResetProcess} />
       <ProductList onSelectProduct={setSelectedProduct} />
     </div>
   );

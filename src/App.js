@@ -1,7 +1,8 @@
 import React from "react";
+import VendingMachine from "./components/VendingMachine ";
 
 const App = () => {
-  return <div>App for Vednding Maschine</div>;
+  return <VendingMachine />;
 };
 
 export default App;
