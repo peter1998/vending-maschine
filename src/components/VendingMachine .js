@@ -1,14 +1,46 @@
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Typography, Button } from "@mui/material";
+import CoinInsertion from "./CoinInsertion";
+import { buyProduct } from "../store/actions/productActions";
 
-const VendingMachine = () => {
+const VendingMachine = ({ onSelectProduct }) => {
   const [coinsInserted, setCoinsInserted] = useState(0);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [change, setChange] = useState(0);
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.products);
+
+  const handleInsertCoin = (coin) => {
+    setCoinsInserted((prevState) => prevState + coin);
+  };
+
+  const handleConfirmPurchase = () => {
+    if (selectedProduct && coinsInserted >= selectedProduct.price) {
+      dispatch(buyProduct(selectedProduct.id));
+      const remainingChange = coinsInserted - selectedProduct.price;
+      setChange(remainingChange);
+      setCoinsInserted(0);
+      setSelectedProduct(null);
+    }
+  };
 
   return (
     <div>
-      <h2>Vending Machine</h2>
-      {/* We'll add more functionality here later */}
+      <Typography variant="h4">Vending Machine</Typography>
+      <Typography variant="h6">
+        Total Inserted: ${coinsInserted.toFixed(2)}
+      </Typography>
+      <CoinInsertion onInsertCoin={handleInsertCoin} />
+      <Button
+        variant="contained"
+        color="secondary"
+        disabled={!selectedProduct || coinsInserted < selectedProduct.price}
+        onClick={handleConfirmPurchase}
+      >
+        Confirm Purchase
+      </Button>
+      <ProductList onSelectProduct={setSelectedProduct} />
     </div>
   );
 };

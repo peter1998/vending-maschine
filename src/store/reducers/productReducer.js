@@ -1,10 +1,15 @@
 const initialState = [];
 
-const productReducer = (state = initialState, action) => {
+const productReducer = (state = [], action) => {
   switch (action.type) {
     case "FETCH_PRODUCTS":
-      state.push(action.payload); // With Redux Toolkit, we can write "mutating" logic.
-      break;
+      return action.payload;
+    case "BUY_PRODUCT":
+      return state.map((product) =>
+        product.id === action.payload
+          ? { ...product, quantity: product.quantity - 1 }
+          : product
+      );
     default:
       return state;
   }
