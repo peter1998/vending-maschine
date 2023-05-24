@@ -19,7 +19,13 @@ Open http://localhost:3000 to view it in the browser.
 The vending machine accepts the following coin denominations (USD): $0.01, $0.05, $0.10, $0.25, $1.
 
 ## Running the tests
-Currently, the project does not include automated tests.
+ I can suggest five test cases:
+
+Check if the VendingMachine component renders.
+Check if a product can be selected.
+Check if coins can be inserted.
+Check if a purchase can be confirmed.
+Check if the process can be reset.
 
 ## Deployment
 The project is not currently set up for any specific deployment pipeline. You may consider deploying it on services like Vercel, Netlify or AWS Amplify.
