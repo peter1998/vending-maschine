@@ -10,6 +10,12 @@ const productReducer = (state = [], action) => {
           ? { ...product, quantity: product.quantity - 1 }
           : product
       );
+    case "UPDATE_PRODUCT_INVENTORY":
+      return state.map((product) =>
+        product.id === action.payload
+          ? { ...product, inventory: product.inventory - 1 }
+          : product
+      );
     default:
       return state;
   }

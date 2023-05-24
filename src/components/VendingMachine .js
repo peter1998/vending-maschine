@@ -9,12 +9,16 @@ import {
   DialogActions,
   Grid,
   Card,
+  Box,
 } from "@mui/material";
 import CoinInsertion from "./CoinInsertion";
 import ProductList from "./ProductList";
 import ResetProcess from "./ResetProcess";
-import { buyProduct } from "../store/actions/productActions";
 import VendingMachineCard from "./VendingMachineCard";
+import {
+  buyProduct,
+  updateProductInventory,
+} from "../store/actions/productActions";
 
 const VendingMachine = ({ onSelectProduct }) => {
   const [coinsInserted, setCoinsInserted] = useState(0);
@@ -50,7 +54,11 @@ const VendingMachine = ({ onSelectProduct }) => {
 
   const handleConfirmPurchase = () => {
     if (selectedProduct && coinsInserted >= selectedProduct.price) {
+      // Dispatch an action to buy the product.
       dispatch(buyProduct(selectedProduct.id));
+      // Dispatch an action to decrease its inventory.
+      dispatch(updateProductInventory(selectedProduct.id));
+
       const remainingChange = Number(
         (coinsInserted - selectedProduct.price).toFixed(2)
       );
@@ -89,10 +97,13 @@ const VendingMachine = ({ onSelectProduct }) => {
       <div style={{ margin: "2rem" }}>
         <Grid container spacing={3}>
           <Grid item xs={6}>
-            <Typography variant="h4" style={{ marginBottom: "1rem" }}>
+            <Typography variant="h4" gutterBottom>
               Vending Machine
             </Typography>
-            <Typography variant="h6" style={{ marginBottom: "1rem" }}>
+            <Typography variant="subtitle1" color="text.secondary" gutterBottom>
+              Works with Dollars $
+            </Typography>
+            <Typography variant="h6" gutterBottom>
               Total Inserted: ${coinsInserted.toFixed(2)}
             </Typography>
             {selectedProduct && (
@@ -137,6 +148,21 @@ const VendingMachine = ({ onSelectProduct }) => {
               >
                 Confirm Purchase
               </Button>
+              <Box
+                sx={{
+                  backgroundColor: "black",
+                  color: "white",
+                  padding: "1rem",
+                  mt: "2rem",
+                  textAlign: "center",
+                }}
+              >
+                If not working contact:
+                <br />
+                Peter Matov
+                <br />
+                pmatov@gmail.com
+              </Box>
             </Grid>
           </Grid>
           <Grid item xs={6}>
