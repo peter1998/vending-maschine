@@ -28,8 +28,7 @@ TODO!
 -Check if the process can be reset.
 
 ## Deployment
-TODO !
- -AWS Amplify.
+## Enjoy the App here (->) https://peter1998.github.io/vending-maschine/
 
 ## Built With
 -React.js: A JavaScript library for building user interfaces.
