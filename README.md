@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Vending Machine Application
+## Description
+This application simulates the functionality of a vending machine. Users can view products, insert coins, purchase products, and receive change. The application manages an inventory count of the products and only allows a user to purchase if the product is in stock and they have inserted sufficient funds.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Prerequisites
+Before you begin, ensure you have met the following requirements:
 
-## Available Scripts
+You have installed the latest version of Node.js and npm.
+## Installing and Running Vending Machine Application
+To install the Vending Machine Application, follow these steps:
 
-In the project directory, you can run:
+Clone this repository onto your local machine.
+Navigate into the project directory: cd vending-machine.
+Install the project dependencies with npm: npm install.
+Start the application: npm start.
+Open http://localhost:3000 to view it in the browser.
 
-### `npm start`
+## Accepted Coin Denominations
+The vending machine accepts the following coin denominations (USD): $0.01, $0.05, $0.10, $0.25, $1.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Running the tests
+Currently, the project does not include automated tests.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Deployment
+The project is not currently set up for any specific deployment pipeline. You may consider deploying it on services like Vercel, Netlify or AWS Amplify.
 
-### `npm test`
+## Built With
+React.js: A JavaScript library for building user interfaces.
+Redux: A predictable state container for JavaScript applications.
+Material-UI: A popular React UI framework.
+Authors
+Peter Matov
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# License
+This project is licensed under the MIT License.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Acknowledgments
+Thank you to DXC technology for providing the task requirement that guided the development of this application.
