@@ -10,10 +10,10 @@ You have installed the latest version of Node.js and npm.
 To install the Vending Machine Application, follow these steps:
 
 # -Clone this repository onto your local machine.
-# -Navigate into the project directory: cd vending-machine.
-# -Install the project dependencies with npm: npm install.
+ -Navigate into the project directory: cd vending-machine.
+ -Install the project dependencies with npm: npm install.
 # -Start the application: npm start.
-# -Open http://localhost:3000 to view it in the browser.
+ -Open http://localhost:3000 to view it in the browser.
 
 ## Accepted Coin Denominations
 The vending machine accepts the following coin denominations (USD): $0.01, $0.05, $0.10, $0.25, $1.
