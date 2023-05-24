@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/vending-maschine/static/js/main.c6138950.js",
+    "index.html": "/vending-maschine/index.html",
+    "main.c6138950.js.map": "/vending-maschine/static/js/main.c6138950.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.c6138950.js"
+  ]
+}
