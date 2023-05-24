@@ -21,7 +21,10 @@ To install the Vending Machine Application, follow these steps:
 The vending machine accepts the following coin denominations (USD): $0.01, $0.05, $0.10, $0.25, $1.
 
 ## Running the tests
- I can suggest five test cases:
+Run tests using 
+# npm test. 
+This should start the test runner, Jest in project.
+ I toggle five test cases:
 TODO!
 +Check if the VendingMachine component renders.
 +Check if a product can be selected.
