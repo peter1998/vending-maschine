@@ -1,4 +1,6 @@
 # Vending Machine Application
+![image](https://github.com/peter1998/vending-maschine/assets/19347046/49be0b09-91c8-4e36-abe0-64097afdf771)
+
 ## Description
 This application simulates the functionality of a vending machine. Users can view products, insert coins, purchase products, and receive change. The application manages an inventory count of the products and only allows a user to purchase if the product is in stock and they have inserted sufficient funds.
 
