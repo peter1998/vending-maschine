@@ -97,12 +97,23 @@ const VendingMachine = ({ onSelectProduct }) => {
             </Typography>
             {selectedProduct && (
               <Card style={{ padding: "1rem", marginBottom: "1rem" }}>
-                <Typography variant="h6">
-                  Selected Product: {selectedProduct.name}
-                </Typography>
-                <Typography variant="body1">
-                  Price: ${selectedProduct.price.toFixed(2)}
-                </Typography>
+                <Grid container spacing={2}>
+                  <Grid item xs={6}>
+                    <Typography variant="h6">
+                      Selected Product: {selectedProduct.name}
+                    </Typography>
+                    <Typography variant="body1">
+                      Price: ${selectedProduct.price.toFixed(2)}
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <img
+                      src={selectedProduct.image}
+                      alt={selectedProduct.name}
+                      style={{ width: "70px", height: "auto" }}
+                    />
+                  </Grid>
+                </Grid>
               </Card>
             )}
             <Typography variant="h6" style={{ marginBottom: "1rem" }}>
