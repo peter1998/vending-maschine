@@ -1,0 +1,15 @@
+.app {
+  background: url("../public/img/park-pathway.jpeg") no-repeat center center
+    fixed;
+  background-size: cover;
+  background-size: 100% 100%;
+
+  overflow: hidden;
+}
+
+.parent-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
