@@ -6,13 +6,14 @@
 
 1. [Description](#Description)
 2. [Setup and Installation](#Setup-and-Installation)
-3. [Coin Denominations](#Coin-Denominations)
-4. [Running Tests](#Running-Tests)
-5. [Deployment](#Deployment)
-6. [Technologies Used](#Technologies-Used)
-7. [Author](#Author)
-8. [Acknowledgments](#Acknowledgments)
-9. [Future Work](#Future-Work)
+3. [Running with Docker](#Running-with-Docker)
+4. [Coin Denominations](#Coin-Denominations)
+5. [Running Tests](#Running-Tests)
+6. [Deployment](#Deployment)
+7. [Technologies Used](#Technologies-Used)
+8. [Author](#Author)
+9. [Acknowledgments](#Acknowledgments)
+10. [Future Work](#Future-Work)
 
 ## Description
 
@@ -31,6 +32,17 @@ To install the Vending Machine Application, follow these steps:
 3. Install the project dependencies with npm: `npm install`.
 4. Start the application: `npm start`.
 5. Open http://localhost:3000 to view it in the browser.
+
+## Running with Docker
+
+Before you begin, make sure you have Docker installed on your system. If it's not currently installed, you can get it from the official Docker website.
+
+To build and run the Vending Machine application with Docker, follow these steps:
+
+1. Navigate to the root directory of the project in your terminal.
+2. Build the Docker image: `docker build -t vending-machine-app .`
+3. Once the image is built, run the Docker container: `docker run -p 3000:3000 vending-machine-app`.
+4. Open your browser and go to http://localhost:3000 to view the application.
 
 ## Coin Denominations
 
@@ -66,9 +78,12 @@ Thank you to [DXC Technology](https://www.dxc.technology/) for providing the tas
 
 ## Future Work
 
-- Integration with Docker for easier setup and deployment.
-- More robust testing and validation of user input.
-- Enhancements to the UI/UX for a smoother user experience.
+1. Creating a Flask server to serve as the backend of the application.
+ This server will handle all business logic and database connections.
+2. Setting up a PostgreSQL database and integrating it with the Flask server.
+ Develop models and schemas for vending machine data.
+3. Enhancements to the UI/UX for a smoother user experience.
+4. More robust testing and validation of user input.
 
 Your contributions and suggestions are heartily♡ welcome, (✿◠‿◠).
 Future Work
