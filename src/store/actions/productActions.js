@@ -4,7 +4,7 @@ const products = [
     name: "Coca Cola",
     price: 1.5,
     quantity: 500,
-    image: "img/coca-cola.png",
+    image: "/img/coca-cola.png",
     inventory: 15,
   },
   {
@@ -12,7 +12,7 @@ const products = [
     name: "White Water",
     price: 3.5,
     quantity: 450,
-    image: "img/white-water.jpg",
+    image: "/img/white-water.jpg",
     inventory: 15,
   },
   {
@@ -20,7 +20,7 @@ const products = [
     name: "Pepsi",
     price: 1.4,
     quantity: 400,
-    image: "img/pepsi.png",
+    image: "/img/pepsi.png",
     inventory: 15,
   },
   {
@@ -28,7 +28,7 @@ const products = [
     name: "Mountain Dew",
     price: 1.8,
     quantity: 380,
-    image: "img/mountain-dew.png",
+    image: "/img/mountain-dew.png",
     inventory: 15,
   },
   {
@@ -36,7 +36,7 @@ const products = [
     name: "Sprite",
     price: 1.9,
     quantity: 420,
-    image: "img/sprite.png",
+    image: "/img/sprite.png",
     inventory: 15,
   },
   {
@@ -44,7 +44,7 @@ const products = [
     name: "Fanta",
     price: 1.6,
     quantity: 470,
-    image: "img/fanta.png",
+    image: "/img/fanta.png",
     inventory: 15,
   },
   {
@@ -52,7 +52,7 @@ const products = [
     name: "Red Bull",
     price: 2.0,
     quantity: 350,
-    image: "img/red-bull.png",
+    image: "/img/red-bull.png",
     inventory: 15,
   },
   {
@@ -60,7 +60,7 @@ const products = [
     name: "Monster Energy",
     price: 2.2,
     quantity: 300,
-    image: "img/monster-energy.png",
+    image: "/img/monster-energy.png",
     inventory: 15,
   },
   {
@@ -68,7 +68,7 @@ const products = [
     name: "Gatorade",
     price: 2.3,
     quantity: 375,
-    image: "img/gatorade.png",
+    image: "/img/gatorade.png",
     inventory: 15,
   },
   {
@@ -76,7 +76,7 @@ const products = [
     name: "Diet Coke",
     price: 1.3,
     quantity: 500,
-    image: "img/diet-coke.png",
+    image: "/img/diet-coke.png",
     inventory: 15,
   },
   {
@@ -84,7 +84,7 @@ const products = [
     name: "Orange Juice",
     price: 2.5,
     quantity: 450,
-    image: "img/orange-juice.png",
+    image: "/img/orange-juice.png",
     inventory: 15,
   },
   {
@@ -92,7 +92,7 @@ const products = [
     name: "Apple Juice",
     price: 2.6,
     quantity: 430,
-    image: "img/apple-juice.png",
+    image: "/img/apple-juice.png",
     inventory: 15,
   },
   {
@@ -100,7 +100,7 @@ const products = [
     name: "Iced Coffee",
     price: 3.0,
     quantity: 300,
-    image: "img/iced-coffee.png",
+    image: "/img/iced-coffee.png",
     inventory: 15,
   },
   {
@@ -108,7 +108,7 @@ const products = [
     name: "Green Tea",
     price: 2.8,
     quantity: 410,
-    image: "img/green-tea.png",
+    image: "/img/green-tea.png",
     inventory: 15,
   },
   {
@@ -116,7 +116,7 @@ const products = [
     name: "Lemonade",
     price: 1.7,
     quantity: 460,
-    image: "img/lemon.png",
+    image: "/img/lemon.png",
     inventory: 15,
   },
 ];

@@ -1,8 +1,6 @@
-// Product.js
 import { Card, CardContent, Typography, CardMedia } from "@mui/material";
 import { styled } from "@mui/system";
 
-// Styled Card for extra customization.
 const StyledCard = styled(Card)(({ theme }) => ({
   width: "100%",
   display: "flex",
@@ -18,12 +16,12 @@ const Product = ({ product, onSelectProduct }) => {
   return (
     <StyledCard
       onClick={() => product.inventory > 0 && onSelectProduct(product)}
-      style={{ opacity: product.inventory > 0 ? 1 : 0.5 }} // Reduce the opacity if the product is out of stock
+      style={{ opacity: product.inventory > 0 ? 1 : 0.5 }}
     >
       <CardMedia
         component="img"
         height="140"
-        image={product.image}
+        image={process.env.PUBLIC_URL + product.image}
         alt={product.name}
       />
       <CardContent>

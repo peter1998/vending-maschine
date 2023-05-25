@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   Typography,
@@ -10,7 +10,11 @@ import {
   Grid,
   Card,
   Box,
+  Container,
+  CardContent,
 } from "@mui/material";
+import { styled, alpha } from "@mui/system";
+
 import CoinInsertion from "./CoinInsertion";
 import ProductList from "./ProductList";
 import ResetProcess from "./ResetProcess";
@@ -19,6 +23,10 @@ import {
   buyProduct,
   updateProductInventory,
 } from "../store/actions/productActions";
+
+const GridItemContainer = styled(Grid)(({ theme }) => ({
+  padding: theme.spacing(2),
+}));
 
 const VendingMachine = ({ onSelectProduct }) => {
   const [coinsInserted, setCoinsInserted] = useState(0);
@@ -31,6 +39,8 @@ const VendingMachine = ({ onSelectProduct }) => {
   const [confirmPurchaseDialogOpen, setConfirmPurchaseDialogOpen] =
     useState(false);
   const [resetDialogOpen, setResetDialogOpen] = useState(false);
+
+  const successImage = process.env.PUBLIC_URL + "/img/mountain.png";
 
   const handleInsertCoin = (coin) => {
     setCoinsInserted((prevState) => prevState + coin);
@@ -54,9 +64,8 @@ const VendingMachine = ({ onSelectProduct }) => {
 
   const handleConfirmPurchase = () => {
     if (selectedProduct && coinsInserted >= selectedProduct.price) {
-      // Dispatch an action to buy the product.
       dispatch(buyProduct(selectedProduct.id));
-      // Dispatch an action to decrease its inventory.
+
       dispatch(updateProductInventory(selectedProduct.id));
 
       const remainingChange = Number(
@@ -78,7 +87,6 @@ const VendingMachine = ({ onSelectProduct }) => {
       setSnackbarOpen(true);
     }
   };
-
   const handleResetProcess = () => {
     setChange(coinsInserted);
     setCoinsInserted(0);
@@ -92,86 +100,114 @@ const VendingMachine = ({ onSelectProduct }) => {
     setSnackbarOpen(false);
   };
 
+  const StyledImage = styled("img")({
+    maxWidth: "40%",
+    boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.2)",
+    borderRadius: "10px",
+    padding: "1rem",
+    marginBottom: "2rem",
+  });
+
+  const StyledTypography = styled(Typography)({
+    fontSize: "1.5rem",
+    fontWeight: "bold",
+    color: "darkblue",
+  });
+
+  const StyledProductGrid = styled(Grid)({
+    backdropFilter: "blur(10px)",
+    backgroundColor: alpha("#3f51b5", 0.8),
+    borderRadius: "15px",
+    padding: "15px",
+  });
+
   return (
     <VendingMachineCard>
-      <div style={{ margin: "2rem" }}>
-        <Grid container spacing={3}>
-          <Grid item xs={6}>
-            <Typography variant="h4" gutterBottom>
-              Vending Machine
-            </Typography>
-            <Typography variant="subtitle1" color="text.secondary" gutterBottom>
-              Works with Dollars $
-            </Typography>
-            <Typography variant="h6" gutterBottom>
-              Total Inserted: ${coinsInserted.toFixed(2)}
-            </Typography>
-            {selectedProduct && (
-              <Card style={{ padding: "1rem", marginBottom: "1rem" }}>
-                <Grid container spacing={2}>
-                  <Grid item xs={6}>
+      <Container maxWidth="lg" style={{ marginTop: "2rem" }}>
+        <Box display="flex" justifyContent="center" marginBottom="1rem">
+          <Typography variant="h4" align="center">
+            Vending Machine
+          </Typography>
+        </Box>
+        <Box display="flex" justifyContent="center" marginBottom="2rem">
+          <StyledTypography align="center">
+            Works with Dollars $
+          </StyledTypography>
+        </Box>
+        <Box display="flex" justifyContent="center">
+          <StyledImage src={successImage} alt="Success" />
+        </Box>
+        <Grid container spacing={3} style={{ marginTop: "2rem" }}>
+          <Grid item xs={12} sm={6}>
+            <Card variant="outlined" sx={{ backgroundColor: "#f5f5f5" }}>
+              <CardContent>
+                <Typography variant="h6" gutterBottom>
+                  Total Inserted: ${coinsInserted.toFixed(2)}
+                </Typography>
+                {selectedProduct && (
+                  <React.Fragment>
                     <Typography variant="h6">
                       Selected Product: {selectedProduct.name}
                     </Typography>
-                    <Typography variant="body1">
+                    <img
+                      src={process.env.PUBLIC_URL + selectedProduct.image}
+                      alt={selectedProduct.name}
+                      style={{
+                        width: "100%",
+                        objectFit: "cover",
+                      }}
+                    />
+                    <Typography variant="h5" color="primary">
                       Price: ${selectedProduct.price.toFixed(2)}
                     </Typography>
-                  </Grid>
-                  <Grid item xs={6}>
-                    <img
-                      src={selectedProduct.image}
-                      alt={selectedProduct.name}
-                      style={{ width: "70px", height: "auto" }}
-                    />
-                  </Grid>
-                </Grid>
-              </Card>
-            )}
-            <Typography variant="h6" style={{ marginBottom: "1rem" }}>
-              Change: ${change.toFixed(2)}
-            </Typography>
+                  </React.Fragment>
+                )}
+                <Typography variant="h6" style={{ marginTop: "1rem" }}>
+                  Change: ${change.toFixed(2)}
+                </Typography>
+              </CardContent>
+            </Card>
             <CoinInsertion
               onInsertCoin={handleInsertCoin}
-              style={{ marginBottom: "1rem" }}
+              style={{ marginTop: "1rem" }}
             />
-            <Grid container justifyContent="space-between" alignItems="center">
-              <ResetProcess
-                onResetProcess={handleResetProcess}
-                style={{ marginBottom: "1rem" }}
-              />
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+              marginTop="1rem"
+            >
+              <ResetProcess onResetProcess={handleResetProcess} />
               <Button
                 variant="contained"
                 color="secondary"
                 disabled={!selectedProduct}
                 onClick={handleOpenConfirmPurchaseDialog}
-                style={{ marginBottom: "1rem" }}
               >
                 Confirm Purchase
               </Button>
-              <Box
-                sx={{
-                  backgroundColor: "black",
-                  color: "white",
-                  padding: "1rem",
-                  mt: "2rem",
-                  textAlign: "center",
-                }}
-              >
-                If not working contact:
-                <br />
-                Peter Matov
-                <br />
-                pmatov@gmail.com
-              </Box>
-            </Grid>
+            </Box>
           </Grid>
-          <Grid item xs={6}>
-            <ProductList
-              onSelectProduct={setSelectedProduct}
-              style={{ marginBottom: "1rem" }}
-            />
-          </Grid>
+
+          <StyledProductGrid item xs={12} sm={6}>
+            <ProductList onSelectProduct={setSelectedProduct} />
+          </StyledProductGrid>
         </Grid>
+        <Box
+          sx={{
+            backgroundColor: "black",
+            color: "white",
+            padding: "1rem",
+            marginTop: "2rem",
+            textAlign: "center",
+          }}
+        >
+          If not working contact:
+          <br />
+          Peter Matov
+          <br />
+          pmatov@gmail.com
+        </Box>
         <Snackbar
           open={snackbarOpen}
           autoHideDuration={6000}
@@ -202,7 +238,7 @@ const VendingMachine = ({ onSelectProduct }) => {
             <Button onClick={handleResetProcess}>Confirm</Button>
           </DialogActions>
         </Dialog>
-      </div>
+      </Container>
     </VendingMachineCard>
   );
 };

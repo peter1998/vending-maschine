@@ -2,11 +2,10 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
-import VendingMachine from "../components/VendingMachine "; // Updated the import path
+import VendingMachine from "../components/VendingMachine ";
 import productReducer from "../store/reducers/productReducer";
 import userEvent from "@testing-library/user-event";
 
-// A store for tests using the same reducers structure as real store
 const store = configureStore({
   reducer: {
     products: productReducer,
