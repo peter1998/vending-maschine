@@ -1,14 +1,15 @@
-import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import VendingMachine from "./components/VendingMachine ";
-import "./App.css";
+import NextPhase from "./components/NextPhase";
 
 const App = () => {
   return (
-    <div className="app">
-      <div className="parent-container">
-        <VendingMachine />
-      </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<VendingMachine />} />
+        <Route path="/next-plan" element={<NextPhase />} />
+      </Routes>
+    </Router>
   );
 };
 
