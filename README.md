@@ -91,3 +91,5 @@ Integration with Docker for easier setup and deployment.
 More robust testing and validation of user input.
 Enhancements to the UI/UX for a smoother user experience.
 Your contributions and suggestions are heartily♡ welcome, (✿◠‿◠).
+
+### 👤 Peter Matov Full Stack Junior
